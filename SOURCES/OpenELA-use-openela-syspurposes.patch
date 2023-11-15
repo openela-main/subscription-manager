@@ -1,0 +1,20 @@
+diff --git a/etc-conf/syspurpose/valid_fields.json b/etc-conf/syspurpose/valid_fields.json
+index 1ac7ea0e..305ec4b9 100644
+--- a/etc-conf/syspurpose/valid_fields.json
++++ b/etc-conf/syspurpose/valid_fields.json
+@@ -1,12 +1,10 @@
+ {
+     "role": [
+-      "Red Hat Enterprise Linux Server",
+-      "Red Hat Enterprise Linux Workstation",
+-      "Red Hat Enterprise Linux Compute Node"
++      "OpenELA Server",
++      "OpenELA Workstation",
++      "OpenELA Compute Node"
+     ],
+     "service_level_agreement": [
+-      "Premium",
+-      "Standard",
+       "Self-Support"
+     ],
+     "usage": [
