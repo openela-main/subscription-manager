@@ -1,0 +1,16 @@
+diff -Naur subscription-manager-1.27.18-old/src/subscription_manager/repofile.py subscription-manager-1.27.18/src/subscription_manager/repofile.py
+--- subscription-manager-1.27.18-old/src/subscription_manager/repofile.py       2021-02-03 08:42:02.000000000 -0700
++++ subscription-manager-1.27.18/src/subscription_manager/repofile.py   2021-04-28 00:00:40.244031713 -0700
+@@ -368,11 +368,7 @@
+         Try to create new repo file.
+         :return: None
+         """
+-        self.create_dir_path()
+-        if self.path_exists(self.path) or not self.manage_repos:
+-            return
+-        with open(self.path, 'w') as f:
+-            f.write(self.REPOFILE_HEADER)
++        return
+
+     def fix_content(self, content):
+         return content
