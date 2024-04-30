@@ -95,7 +95,7 @@
 %global exclude_packages %{exclude_packages}"
 
 Name: subscription-manager
-Version: 1.29.38
+Version: 1.29.40
 Release: 1%{?dist}.openela.0.1
 Summary: Tools and libraries for subscription and repository management
 %if 0%{?suse_version}
@@ -159,10 +159,9 @@ Requires: python3-gobject-base
 %endif
 
 # rhel 8 has different naming for setuptools going forward
+# on newer rhels and Fedora setuptools is not needed on runtime at all
 %if (0%{?rhel} && 0%{?rhel} == 8)
 Requires: platform-python-setuptools
-%else
-Requires: %{py_package_prefix}-setuptools
 %endif
 
 %if %{use_dnf}
@@ -190,6 +189,7 @@ BuildRequires: openssl-devel
 BuildRequires: gcc
 BuildRequires: %{py_package_prefix}-setuptools
 BuildRequires: gettext
+BuildRequires: glib2-devel
 
 %if 0%{?suse_version}
 BuildRequires: distribution-release
@@ -738,8 +738,45 @@ rmdir %{python_sitearch}/subscription_manager-*-*.egg-info --ignore-fail-on-non-
 rm -f /var/lib/rhsm/cache/rhsm_icon.json
 
 %changelog
-* Thu Jan 25 2024 Release Engineering <releng@openela.org> - 1.29.38.openela.0.1
+* Tue Apr 30 2024 Release Engineering <releng@openela.org> - 1.29.40.openela.0.1
 - Remove Red Hat specific references and certificates
+
+* Thu Jan 18 2024 Pino Toscano <ptoscano@redhat.com> 1.29.40-1
+- Translated using Weblate (Korean) (simmon@nplob.com)
+- Translated using Weblate (Chinese (Simplified) (zh_CN))
+  (mariocanfly@hotmail.com)
+- spec: Add missing GLib dependency when building without DNF
+  (debarshir@gnome.org)
+- Remove deprecated `locale.*()` functions (mhorky@redhat.com)
+- Remove version constraint of pytest (mhorky@redhat.com)
+- RHEL-15110: RegisterServer is stopped, when not needed (jhnidek@redhat.com)
+- RHEL-15110: Fix issue with registration using gsd-subman (jhnidek@redhat.com)
+- Fix an error in debug logging of cloud-what (mhorky@redhat.com)
+- ci: bump actions/upload-artifact from 3 to 4
+  (49699333+dependabot[bot]@users.noreply.github.com)
+- Improve debug logging to make it faster to understand (mhorky@redhat.com)
+
+* Thu Nov 23 2023 Pino Toscano <ptoscano@redhat.com> 1.29.39-1
+- tito: drop bz requirement (ptoscano@redhat.com)
+- Translated using Weblate (Chinese (Simplified) (zh_CN)) (jsefler@redhat.com)
+- RHEL-7206: Small change of message printed by dnf plugin (jhnidek@redhat.com)
+- CCT-118: Fix flake8 error E721 (mhorky@redhat.com)
+- Fix type hint in rhsm (mhorky@redhat.com)
+- Simplify autoregistration test setup (mhorky@redhat.com)
+- RHEL-9435: Get AWS metadata via IMDSv2 (mhorky@redhat.com)
+- Fixed inappropriate logical expression (ataf@openrefactory.com)
+- CCT-71: Try to ping server, when --proxy is used (jhnidek@redhat.com)
+- CCT-10: Ensure IPv6-based URLs are properly formatted (mhorky@redhat.com)
+- RPM: Avoid needless runtime requirement on python3-setuptools
+  (miro@hroncok.cz)
+- cli: normalize hostname in error message (ptoscano@redhat.com)
+- connection: normalize hostname in ConnectionOSErrorException
+  (ptoscano@redhat.com)
+- Improved printing of addresses and URLs (jhnidek@redhat.com)
+- Use username and password from --proxy=URL (jhnidek@redhat.com)
+- Use parse_url() from utils.py for parsing URL, when --proxy is used.
+  (jhnidek@redhat.com)
+- 2225403: Parse URL properly (jhnidek@redhat.com)
 
 * Thu Sep 14 2023 Pino Toscano <ptoscano@redhat.com> 1.29.38-1
 - Translated using Weblate (Chinese (Simplified) (zh_CN)) (ptoscano@redhat.com)
