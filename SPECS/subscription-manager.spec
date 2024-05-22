@@ -225,7 +225,7 @@
 %global use_rhsm_icons 0%{use_cockpit} || 0%{use_rhsm_gtk}
 
 Name: subscription-manager
-Version: 1.28.40
+Version: 1.28.42
 Release: 1%{?dist}.openela.0.1
 Summary: Tools and libraries for subscription and repository management
 %if 0%{?suse_version}
@@ -1384,8 +1384,34 @@ gtk-update-icon-cache -f %{_datadir}/icons/hicolor &>/dev/null || :
 %endif
 
 %changelog
-* Thu Jan 25 2024 Release Engineering <releng@openela.org> - 1.28.40.openela.0.1
+* Wed May 22 2024 Release Engineering <releng@openela.org> - 1.28.42.openela.0.1
 - Remove Red Hat specific references and certificates
+
+* Thu Jan 25 2024 Pino Toscano <ptoscano@redhat.com> 1.28.42-1
+- Translated using Weblate (Korean) (simmon@nplob.com)
+- Translated using Weblate (Chinese (Simplified) (zh_CN))
+  (mariocanfly@hotmail.com)
+- RHEL-21049: [1.28] RegisterServer is stopped, when not needed
+  (jhnidek@redhat.com)
+- RHEL-21049: [1.28] Fix issue with registration using gsd-subman
+  (jhnidek@redhat.com)
+
+* Tue Dec 05 2023 Pino Toscano <ptoscano@redhat.com> 1.28.41-1
+- tito: drop bz requirement (ptoscano@redhat.com)
+- Translated using Weblate (Chinese (Simplified) (zh_CN)) (jsefler@redhat.com)
+- CCT-71: Try to ping server, when --proxy is used (jhnidek@redhat.com)
+- CCT-10: Ensure IPv6-based URLs are properly formatted (mhorky@redhat.com)
+- cli: normalize hostname in error message (ptoscano@redhat.com)
+- connection: normalize hostname in ConnectionOSErrorException
+  (ptoscano@redhat.com)
+- Improved printing of addresses and URLs (jhnidek@redhat.com)
+- Use username and password from --proxy=URL (jhnidek@redhat.com)
+- Use parse_url() from utils.py for parsing URL, when --proxy is used.
+  (jhnidek@redhat.com)
+- RHEL-13375: 1.28 Parse URL properly (jhnidek@redhat.com)
+- ci: stop testing on Fedora (ptoscano@redhat.com)
+- Simplify autoregistration test setup (mhorky@redhat.com)
+- RHEL-9435: Get AWS metadata via IMDSv2 (mhorky@redhat.com)
 
 * Thu Sep 14 2023 Pino Toscano <ptoscano@redhat.com> 1.28.40-1
 - Translated using Weblate (Chinese (Simplified) (zh_CN)) (ptoscano@redhat.com)
