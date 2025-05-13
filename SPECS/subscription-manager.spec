@@ -95,7 +95,7 @@
 %global exclude_packages %{exclude_packages}"
 
 Name: subscription-manager
-Version: 1.29.42
+Version: 1.29.45
 Release: 1%{?dist}.openela.0.1
 Summary: Tools and libraries for subscription and repository management
 %if 0%{?suse_version}
@@ -738,8 +738,49 @@ rmdir %{python_sitearch}/subscription_manager-*-*.egg-info --ignore-fail-on-non-
 rm -f /var/lib/rhsm/cache/rhsm_icon.json
 
 %changelog
-* Tue Nov 12 2024 Release Engineering <releng@openela.org> - 1.29.42.openela.0.1
+* Tue May 13 2025 Release Engineering <releng@openela.org> - 1.29.45.openela.0.1
 - Remove Red Hat specific references and certificates
+
+* Tue Feb 11 2025 Pino Toscano <ptoscano@redhat.com> 1.29.45-1
+- fix: Do not upload profile from DNF, when it is disabled in conf
+  (jhnidek@redhat.com)
+- feat: dnf plugin - outsource uploading of profile to rhsmcertd.
+  (jhnidek@redhat.com)
+- feat: Enable register with environment names and environment types
+  (jhnidek@redhat.com)
+- feat: support registering specifying environments with activation keys
+  (ryanverdile@gmail.com)
+- chore: Remove auto-assign CI job (mhorky@redhat.com)
+- feat: [1.29] Added basic configuration for Packit (jhnidek@redhat.com)
+
+* Fri Jan 24 2025 Pino Toscano <ptoscano@redhat.com> 1.29.44-1
+- Revert "feat: Disable anonymous cloud registration temporarily"
+  (ptoscano@redhat.com)
+- Revert "feat: forcefully switch automatic cloud registration to v1"
+  (ptoscano@redhat.com)
+- Translated using Weblate (Chinese (Simplified) (zh_CN)) (ptoscano@redhat.com)
+- Translated using Weblate (Georgian) (temuri.doghonadze@gmail.com)
+- Translated using Weblate (Korean) (simmon@nplob.com)
+- Translated using Weblate (French) (leane.grasser@proton.me)
+- Update translation files (noreply@weblate.org)
+- New extraction for translatable strings (ptoscano@redhat.com)
+- Translated using Weblate (Italian) (info@salvatorecocuzza.it)
+- Translated using Weblate (French) (leane.grasser@proton.me)
+- Translated using Weblate (German) (atalanttore@googlemail.com)
+- Translated using Weblate (Korean) (simmon@nplob.com)
+- Translated using Weblate (Georgian) (temuri.doghonadze@gmail.com)
+
+* Thu Dec 19 2024 Jiri Hnidek <jhnidek@redhat.com> 1.29.43-1
+- [1.29] feat/cct-868: Subset of list command options marked as deprecated *
+  Options --available, --all, --ondate, --servicelevel --no-overlap --match-
+  install, --pool-only, --afterdate were marked as deprecated in ListCommand
+  definition of their help string. (mgrunwal@redhat.com)
+- fix: Handle Retry-After headers better for 429 responses (mhorky@redhat.com)
+- feat: Better automatic registration logging (mhorky@redhat.com)
+- fix: perform autoreg waiting when performing standard autoreg
+  (ptoscano@redhat.com)
+- chore: move autoreg waiting code in own function (ptoscano@redhat.com)
+- docs: update proxy details in man page (jvlcek@redhat.com)
 
 * Thu Aug 22 2024 Pino Toscano <ptoscano@redhat.com> 1.29.42-1
 - feat: forcefully switch automatic cloud registration to v1
