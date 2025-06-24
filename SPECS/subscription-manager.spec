@@ -95,7 +95,7 @@
 %global exclude_packages %{exclude_packages}"
 
 Name: subscription-manager
-Version: 1.29.45
+Version: 1.29.45.1
 Release: 1%{?dist}.openela.0.1
 Summary: Tools and libraries for subscription and repository management
 %if 0%{?suse_version}
@@ -738,8 +738,12 @@ rmdir %{python_sitearch}/subscription_manager-*-*.egg-info --ignore-fail-on-non-
 rm -f /var/lib/rhsm/cache/rhsm_icon.json
 
 %changelog
-* Tue May 13 2025 Release Engineering <releng@openela.org> - 1.29.45.openela.0.1
+* Tue Jun 24 2025 Release Engineering <releng@openela.org> - 1.29.45.1.openela.0.1
 - Remove Red Hat specific references and certificates
+
+* Thu Jun 05 2025 Jiri Hnidek <jhnidek@redhat.com> 1.29.45.1-1
+- fix: Handle improperly closed connections (mhorky@redhat.com)
+- ci: use the right distro for coverage reporting (ptoscano@redhat.com)
 
 * Tue Feb 11 2025 Pino Toscano <ptoscano@redhat.com> 1.29.45-1
 - fix: Do not upload profile from DNF, when it is disabled in conf
