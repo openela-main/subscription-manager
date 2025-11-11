@@ -95,7 +95,7 @@
 %global exclude_packages %{exclude_packages}"
 
 Name: subscription-manager
-Version: 1.29.47
+Version: 1.29.47.1
 Release: 1%{?dist}.openela.0.1
 Summary: Tools and libraries for subscription and repository management
 %if 0%{?suse_version}
@@ -139,6 +139,7 @@ Requires: %{py_package_prefix}-decorator
 Requires: virt-what
 Requires: %{rhsm_package_name} = %{version}
 Requires: subscription-manager-rhsm-certificates
+Requires(post): findutils
 %ifarch %{dmidecode_arches}
 Requires: dmidecode
 %endif
@@ -190,6 +191,7 @@ BuildRequires: gcc
 BuildRequires: %{py_package_prefix}-setuptools
 BuildRequires: gettext
 BuildRequires: glib2-devel
+BuildRequires: findutils
 
 %if 0%{?suse_version}
 BuildRequires: distribution-release
@@ -738,8 +740,11 @@ rmdir %{python_sitearch}/subscription_manager-*-*.egg-info --ignore-fail-on-non-
 rm -f /var/lib/rhsm/cache/rhsm_icon.json
 
 %changelog
-* Tue Nov 11 2025 Release Engineering <releng@openela.org> - 1.29.47.openela.0.1
+* Tue Nov 11 2025 Release Engineering <releng@openela.org> - 1.29.47.1.openela.0.1
 - Remove Red Hat specific references and certificates
+
+* Wed Oct 01 2025 Jiri Hnidek <jhnidek@redhat.com> 1.29.47.1-1
+- fix: [1.29.47] Require findutils in .spec file (jhnidek@redhat.com)
 
 * Thu Jul 31 2025 Jiri Hnidek <jhnidek@redhat.com> 1.29.47-1
 - Translated using Weblate (Georgian) (temuri.doghonadze@gmail.com)
