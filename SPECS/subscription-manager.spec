@@ -95,7 +95,7 @@
 %global exclude_packages %{exclude_packages}"
 
 Name: subscription-manager
-Version: 1.29.45.1
+Version: 1.29.47
 Release: 1%{?dist}.openela.0.1
 Summary: Tools and libraries for subscription and repository management
 %if 0%{?suse_version}
@@ -738,12 +738,61 @@ rmdir %{python_sitearch}/subscription_manager-*-*.egg-info --ignore-fail-on-non-
 rm -f /var/lib/rhsm/cache/rhsm_icon.json
 
 %changelog
-* Tue Jun 24 2025 Release Engineering <releng@openela.org> - 1.29.45.1.openela.0.1
+* Tue Nov 11 2025 Release Engineering <releng@openela.org> - 1.29.47.openela.0.1
 - Remove Red Hat specific references and certificates
 
-* Thu Jun 05 2025 Jiri Hnidek <jhnidek@redhat.com> 1.29.45.1-1
+* Thu Jul 31 2025 Jiri Hnidek <jhnidek@redhat.com> 1.29.47-1
+- Translated using Weblate (Georgian) (temuri.doghonadze@gmail.com)
+- Translated using Weblate (Spanish) (fserrador@gmail.com)
+- Translated using Weblate (Spanish) (jsefler@redhat.com)
+- Translated using Weblate (Korean) (simmon@nplob.com)
+- fix: [1.29] Wait random time before reaching IMDS server (jhnidek@redhat.com)
+- feat: [1.29] Call random.seed() at begining of auto-register
+  (jhnidek@redhat.com)
+- feat: [1.29] Better control over auto-reg waiting game (jhnidek@redhat.com)
+- fix: [1.29] Enable content during auto-registration v2 (jhnidek@redhat.com)
+
+* Thu May 15 2025 Jiri Hnidek <jhnidek@redhat.com> 1.29.46-1
+- Translated using Weblate (Italian) (info@salvatorecocuzza.it)
+- Translated using Weblate (Italian) (noreply-mt-weblate-translation-
+  memory@weblate.org)
+- Translated using Weblate (Italian) (info@salvatorecocuzza.it)
+- Translated using Weblate (Spanish) (fserrador@gmail.com)
+- Translated using Weblate (Georgian) (temuri.doghonadze@gmail.com)
+- Translated using Weblate (Chinese (Traditional) (zh_TW)) (chzang55@gmail.com)
+- Translated using Weblate (Chinese (Simplified) (zh_CN)) (mhorky@redhat.com)
+- Translated using Weblate (Georgian) (noreply-mt-weblate-translation-
+  memory@weblate.org)
+- Translated using Weblate (French) (leane.grasser@proton.me)
+- Translated using Weblate (Korean) (simmon@nplob.com)
+- Translated using Weblate (Korean) (noreply-mt-weblate-translation-
+  memory@weblate.org)
+- Translated using Weblate (Korean) (simmon@nplob.com)
+- Translated using Weblate (Korean) (noreply-mt-weblate-translation-
+  memory@weblate.org)
+- Update translation files (noreply@weblate.org)
 - fix: Handle improperly closed connections (mhorky@redhat.com)
 - ci: use the right distro for coverage reporting (ptoscano@redhat.com)
+- New extraction for translatable strings (ptoscano@redhat.com)
+- Translated using Weblate (Italian) (toscano.pino@tiscali.it)
+- Translated using Weblate (Georgian) (temuri.doghonadze@gmail.com)
+- Translated using Weblate (French) (leane.grasser@proton.me)
+- tests: fix mocking of get_terminal_width() in TestColumnize
+  (ptoscano@redhat.com)
+- feat: print compliance errors & syspurpose status only in entitlement mode
+  (ptoscano@redhat.com)
+- feat: print "registered" as status when using SCA (ptoscano@redhat.com)
+- feat: print "not registered" on status when not registered
+  (ptoscano@redhat.com)
+- tests: force syspurpose tests in test_status to non-SCA (ptoscano@redhat.com)
+- refactor: move determination of content access mode in own method
+  (ptoscano@redhat.com)
+- tests: move StubIdentity to stubs (ptoscano@redhat.com)
+- tests: cleanup dead/broken bits in test_status (ptoscano@redhat.com)
+- chore: move banner printing to its own function (ptoscano@redhat.com)
+- fix: Append two additional facts to the graylist (pkoprda@redhat.com)
+- refactor: Use class constant instead of variable graylist
+  (pkoprda@redhat.com)
 
 * Tue Feb 11 2025 Pino Toscano <ptoscano@redhat.com> 1.29.45-1
 - fix: Do not upload profile from DNF, when it is disabled in conf
