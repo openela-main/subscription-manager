@@ -83,7 +83,7 @@
 %global exclude_packages %{exclude_packages}"
 
 Name: subscription-manager
-Version: 1.30.10
+Version: 1.30.10.1
 Release: 1%{?dist}
 Summary: Tools and libraries for subscription and repository management
 %if 0%{?suse_version}
@@ -124,6 +124,7 @@ Requires:  python3-decorator
 Requires:  virt-what
 Requires:  python3-subscription-manager-rhsm = %{version}-%{release}
 Requires: subscription-manager-rhsm-certificates
+Requires(post): findutils
 %ifarch %{dmidecode_arches}
 Requires: dmidecode
 %endif
@@ -178,6 +179,7 @@ BuildRequires: gcc
 BuildRequires: python3-setuptools
 BuildRequires: gettext
 BuildRequires: glib2-devel
+BuildRequires: findutils
 
 %if 0%{?suse_version}
 BuildRequires: distribution-release
@@ -677,6 +679,9 @@ rm -f /var/lib/rhsm/cache/rhsm_icon.json
 rm -f /var/lib/rhsm/cache/content_access_mode.json
 
 %changelog
+* Wed Oct 01 2025 Jiri Hnidek <jhnidek@redhat.com> 1.30.10.1-1
+- fix: [1.30.10] Require findutils in .spec file (jhnidek@redhat.com)
+
 * Wed Jul 30 2025 Jiri Hnidek <jhnidek@redhat.com> 1.30.10-1
 - Translated using Weblate (Georgian) (temuri.doghonadze@gmail.com)
 - Translated using Weblate (Spanish) (fserrador@gmail.com)
