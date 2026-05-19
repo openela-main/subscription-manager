@@ -83,7 +83,7 @@
 %global exclude_packages %{exclude_packages}"
 
 Name: subscription-manager
-Version: 1.30.10.1
+Version: 1.30.12
 Release: 1%{?dist}
 Summary: Tools and libraries for subscription and repository management
 %if 0%{?suse_version}
@@ -134,7 +134,7 @@ Requires: python3-python-dateutil
 Requires: python3-dbus-python
 Requires: logrotate
 Requires: cron
-Requires: python3-gobject2
+Requires: python3-gobject
 Requires: libzypp
 Requires: python3-zypp-plugin
 %else
@@ -398,6 +398,7 @@ find %{buildroot} -name \*.py* -exec touch -r %{SOURCE0} '{}' \;
 %dir %{_sysconfdir}/pki
 %dir %{_prefix}/share/polkit-1
 %dir %{_prefix}/share/polkit-1/actions
+%dir %{_sysconfdir}/rhsm
 %dir %{_sysconfdir}/dbus-1
 %dir %{_sysconfdir}/dbus-1/system.d
 %attr(755,root,root) %dir %{_sysconfdir}/rhsm/zypper.repos.d
@@ -679,8 +680,77 @@ rm -f /var/lib/rhsm/cache/rhsm_icon.json
 rm -f /var/lib/rhsm/cache/content_access_mode.json
 
 %changelog
-* Wed Oct 01 2025 Jiri Hnidek <jhnidek@redhat.com> 1.30.10.1-1
-- fix: [1.30.10] Require findutils in .spec file (jhnidek@redhat.com)
+* Fri Jan 23 2026 Jiri Hnidek <jhnidek@redhat.com> 1.30.12-1
+- feat: Added more debug prints to cloud-what (jhnidek@redhat.com)
+- Translated using Weblate (Georgian) (temuri.doghonadze@gmail.com)
+- Translated using Weblate (Georgian) (noreply-mt-weblate-translation-
+  memory@weblate.org)
+- Translated using Weblate (Georgian) (temuri.doghonadze@gmail.com)
+- Added translation using Weblate (Finnish) (noreply-addon-
+  languages@weblate.org)
+- Translated using Weblate (Czech) (jsefler@redhat.com)
+- fix(test): Fix unit tests of "sub-man status" (jhnidek@redhat.com)
+- RHEL-126153: Update GCP to Google Cloud in log messages (crag@redhat.com)
+- fix: Update user-facing GCP refrences to Google Cloud (crag@redhat.com)
+- ci: bump actions/upload-artifact from 5 to 6
+  (49699333+dependabot[bot]@users.noreply.github.com)
+- Fix profile upload because of missing self.cp (suttner@atix.de)
+- feat: added signature type log in TLS handshake (macano@redhat.com)
+- feat: added internal method to get tls handshake info
+  (manuelcanorojo@gmail.com)
+- fix: Print list of environments without --set/--list (jhnidek@redhat.com)
+- fix: Fix getting AWS IMDSv2 signature (jhnidek@redhat.com)
+- fix(test): Fix unit test of aws (jhnidek@redhat.com)
+- fix(ci): Fixed integration tests of syspurpose (jhnidek@redhat.com)
+- chore: Removed deprecated information from setup.py (jhnidek@redhat.com)
+- chore(ci): Specify permissions for Actions (mhorky@redhat.com)
+- feat: check if --set arg is empty when the environments module is called
+  (manuelcanorojo@gmail.com)
+- docs: added missing gettext building dependency (manuelcanorojo@gmail.com)
+- docs: improved man content related to subscription-manager environment
+  variables for proxy configuration (manuelcanorojo@gmail.com)
+- ci: bump actions/checkout from 5 to 6
+  (49699333+dependabot[bot]@users.noreply.github.com)
+- Fix gobject python package name of sles (suttner@atix.de)
+- Fix SLES build on OBS (suttner@atix.de)
+
+* Wed Nov 05 2025 Jiri Hnidek <jhnidek@redhat.com> 1.30.11-1
+- fix: Do not send JSON document with empty signature (jhnidek@redhat.com)
+- Translated using Weblate (Czech) (pavel.borecki@gmail.com)
+- Translated using Weblate (Czech) (jhnidek@redhat.com)
+- Translated using Weblate (Korean) (simmon@nplob.com)
+- Translated using Weblate (Czech) (pavel.borecki@gmail.com)
+- Translated using Weblate (Czech) (noreply-mt-weblate-translation-
+  memory@weblate.org)
+- Added translation using Weblate (Czech) (pavel.borecki@gmail.com)
+- chore: Make new black happy again (jhnidek@redhat.com)
+- chore: Increased log level of messages (jhnidek@redhat.com)
+- fix: Use IMDSv2 for signature first (jhnidek@redhat.com)
+- ci: bump actions/upload-artifact from 4 to 5
+  (49699333+dependabot[bot]@users.noreply.github.com)
+- chore: Removed getSyspurposeCompliance (jhnidek@redhat.com)
+- chore: Do not call candlepin from GetSyspurposeStatus (jhnidek@redhat.com)
+- chore: Removed SyspurposeComplianceStatusCache (jhnidek@redhat.com)
+- fix: Require findutils in .spec file (jhnidek@redhat.com)
+- feat: Try to cache candlepin server capabilities (jhnidek@redhat.com)
+- solved a conflict in utils.py (jstavel@redhat.com)
+- CCT-744: integration tests for DBus Config object (jstavel@redhat.com)
+- CCT-1029: tests for Register with environment option (jstavel@redhat.com)
+- chore: Small changes in integration-tests/test_syspurpose.py
+  (jhnidek@redhat.com)
+- chore: Small fixes in test_register_get_orgs.py (jhnidek@redhat.com)
+- chore: Small fixes of integration-tests/test_register.py (jhnidek@redhat.com)
+- chore: Small tweaks of bash script of integration tests (jhnidek@redhat.com)
+- chore(doc): Improved README.md for integration tests (jhnidek@redhat.com)
+- CCT-743: rebased (jstavel@redhat.com)
+- CCT-1600: fix applied, unified settings.toml to use the same name of
+  valid_fields.json (jstavel@redhat.com)
+- ci: bump actions/checkout from 4 to 5
+  (49699333+dependabot[bot]@users.noreply.github.com)
+- CCT-742: integration tests for DBus Syspurpose object (jstavel@redhat.com)
+- CCT-1029: test for dbus method GetEnvironments (jstavel@redhat.com)
+- CCT-1097: added enable_content for registration tests (jstavel@redhat.com)
+- CCT-745: multi org credentials added (jstavel@redhat.com)
 
 * Wed Jul 30 2025 Jiri Hnidek <jhnidek@redhat.com> 1.30.10-1
 - Translated using Weblate (Georgian) (temuri.doghonadze@gmail.com)
