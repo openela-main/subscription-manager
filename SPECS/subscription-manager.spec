@@ -83,7 +83,7 @@
 %global exclude_packages %{exclude_packages}"
 
 Name: subscription-manager
-Version: 1.30.12
+Version: 1.30.16
 Release: 1%{?dist}
 Summary: Tools and libraries for subscription and repository management
 %if 0%{?suse_version}
@@ -133,7 +133,6 @@ Requires: dmidecode
 Requires: python3-python-dateutil
 Requires: python3-dbus-python
 Requires: logrotate
-Requires: cron
 Requires: python3-gobject
 Requires: libzypp
 Requires: python3-zypp-plugin
@@ -680,6 +679,108 @@ rm -f /var/lib/rhsm/cache/rhsm_icon.json
 rm -f /var/lib/rhsm/cache/content_access_mode.json
 
 %changelog
+* Tue Aug 11 2026 Christopher Snyder <csnyder@redhat.com> 1.30.16-1
+- fix: Invalidate CurrentOwnerCache when managerlib.persist_consumer_cert used
+  (csnyder@redhat.com)
+- Translated using Weblate (Russian) (adem4ik@gmail.com)
+- Translated using Weblate (Czech) (pavel.borecki@gmail.com)
+- Translated using Weblate (Georgian) (temuri.doghonadze@gmail.com)
+- Translated using Weblate (Spanish) (fserrador@gmail.com)
+- Translated using Weblate (Portuguese (Brazil)) (rafaelff@gnome.org)
+- Translated using Weblate (Czech) (jan.kalabza@gmail.com)
+- Translated using Weblate (Georgian) (noreply-mt-weblate-translation-
+  memory@weblate.org)
+- Translated using Weblate (Czech) (jan.kalabza@gmail.com)
+- Translated using Weblate (Czech) (noreply-mt-weblate-translation-
+  memory@weblate.org)
+- Translated using Weblate (Czech) (jan.kalabza@gmail.com)
+- Translated using Weblate (Italian) (ali.ciloqlu@murena.io)
+- fix: Gettext is still required for building & testing (jhnidek@redhat.com)
+- docs: modernize subscription-manager.8 man page (CCT-719)
+  (jsefler@redhat.com)
+- test(ci): Drop intltool dependency in the container (jvanderwaa@redhat.com)
+- fix: set exit code during subscription-manager config
+  --rhsm.certificate_algorithms (jlocash@redhat.com)
+- docs: add caution for certificate_algorithms configuration (CCT-2686)
+  (jsefler@redhat.com)
+- ci: bump actions/checkout from 6 to 7
+  (49699333+dependabot[bot]@users.noreply.github.com)
+
+* Mon Jun 22 2026 Jiri Hnidek <jhnidek@redhat.com> 1.30.15-1
+- chore: better definition of IP address of AWS IMDS (jhnidek@redhat.com)
+- Fix package upload during initial register (suttner@atix.de)
+- feat(pqc): update crypto capabilities from 'refresh' command
+  (jlocash@redhat.com)
+- feat(pqc): update crypto capabilities from 'identity --regenerate' command
+  (jlocash@redhat.com)
+- style: fix flake8 lint error (jlocash@redhat.com)
+- feat(pqc): update crypto capabilities in candlepin from rhsmcertd-worker
+  (jlocash@redhat.com)
+- feat(pqc): implement cache for crypto capabilities (jlocash@redhat.com)
+- fix: Invalidate and update CurrentOwnerCache when owner change is detected
+  (csnyder@redhat.com)
+- chore: Added more debug prints about closing connections (jhnidek@redhat.com)
+- fix: Set timeout before trying to close TLS connection (jhnidek@redhat.com)
+- fix(pqc): update warning to indicate fallback (jlocash@redhat.com)
+- fix(pqc): raise RuntimeError when get_signature_algorithms or
+  get_public_key_algorithms throw (jlocash@redhat.com)
+- feat(pqc): print warning when setting invalid `certificate_algorithms` value
+  (jlocash@redhat.com)
+- docs: Document `rhsm.certificate_algorithms` config option in rhsm.conf man
+  pages (jlocash@redhat.com)
+- fix: drop __smoke_test__ and __main__ from pqc.py (jlocash@redhat.com)
+- style: fix linting error in connection.py (jlocash@redhat.com)
+- test: fix broken tests for registerConsumer (jlocash@redhat.com)
+- feat(pqc): Use C bindings to retrieve public-key and signature algorithms in
+  pqc.py (jlocash@redhat.com)
+- feat: POC: Add support for PQC (jhnidek@redhat.com)
+- Remove cron RPM requirement on suse systems (suttner@atix.de)
+- test: Added C unit tests of _certificate.so (jhnidek@redhat.com)
+- feat: Added .pyi file for certificate.c (jhnidek@redhat.com)
+- chore: Not all .py* files should be ignored (jhnidek@redhat.com)
+- test: Created unit tests for certificate.c (jhnidek@redhat.com)
+- feat: Added 2 methods for listing crypto algorithms (jhnidek@redhat.com)
+
+* Fri Mar 27 2026 Jason Jerome <jajerome@redhat.com> 1.30.14-1
+- Translated using Weblate (Georgian) (temuri.doghonadze@gmail.com)
+- Translated using Weblate (Georgian) (noreply-mt-weblate-translation-
+  memory@weblate.org)
+- Translated using Weblate (Georgian) (temuri.doghonadze@gmail.com)
+- Translated using Weblate (Georgian) (noreply-mt-weblate-translation-
+  memory@weblate.org)
+- Automatic commit of package [subscription-manager] release [1.30.13-1].
+  (jhnidek@redhat.com)
+
+* Thu Mar 19 2026 Jiri Hnidek <jhnidek@redhat.com> 1.30.13-1
+- Translated using Weblate (Georgian) (temuri.doghonadze@gmail.com)
+- chore: Make black-26.* happy again (./) (jhnidek@redhat.com)
+- chore: Update black to 26.3.1 in GitHub action yml file (jhnidek@redhat.com)
+- chore: Make black-26.* happy again (./integration-tests) (jhnidek@redhat.com)
+- chore: Make black-26.* happy again (./test) (jhnidek@redhat.com)
+- test: Fixed one unit test related to inotify (jhnidek@redhat.com)
+- chore: Make black-26.* happy again (./src) (jhnidek@redhat.com)
+- chore: style formatting fixes in rhsmcertd worker (jajerome@redhat.com)
+- fix: updated rhsmcertd to detect when auto-registration is terminated early
+  (jajerome@redhat.com)
+- fix: updated rhsmcertd to detect when system is already registered
+  (jajerome@redhat.com)
+- chore(deps): bump black from 24.3.0 to 26.3.1
+  (49699333+dependabot[bot]@users.noreply.github.com)
+- chore(deps): bump black from 24.3.0 to 26.3.1 in /integration-tests
+  (49699333+dependabot[bot]@users.noreply.github.com)
+- fix: allow system to be registered with broken insights-client
+  (jlocash@redhat.com)
+- fix: skip package profile upload when disabled in config
+  (jajerome@redhat.com)
+- fix(unit-tests): mock isdir so rhsm_debug tests are env agnostic
+  (csnyder@redhat.com)
+- ci: bump actions/upload-artifact from 6 to 7
+  (49699333+dependabot[bot]@users.noreply.github.com)
+- fix: Handle non-existence of /var/cache/cloud-what gracefully
+  (jhnidek@redhat.com)
+- fix(unit-tests): Fixed unit tests for rhsm-debug (jhnidek@redhat.com)
+- feat: Add /var/cache/cloud-what/ to sos-report (jhnidek@redhat.com)
+
 * Fri Jan 23 2026 Jiri Hnidek <jhnidek@redhat.com> 1.30.12-1
 - feat: Added more debug prints to cloud-what (jhnidek@redhat.com)
 - Translated using Weblate (Georgian) (temuri.doghonadze@gmail.com)
